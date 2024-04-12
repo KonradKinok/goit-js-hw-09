@@ -1,50 +1,161 @@
-**Read in other languages: [Русский](README.md), [Українська](README.ua.md),
-[English](README.en.md), [Español](README.es.md), [Polski](README.pl.md).**
+# goit-js-hw-09
+ zadanie 9 js
 
-# Критерии приема
+Link do repozytorium:
+https://github.com/KonradKinok/goit-js-hw-09
 
-- Создан репозиторий `goit-js-hw-09`.
-- При сдаче домашней работы есть две ссылки для каждого проекта: на исходные
-  файлы и рабочую страницу на `GitHub Pages`.
-- При посещении живой страницы задания, в консоли нету ошибок и предупреждений.
-- Проект собран с помощью
+Link do strony:
+https://konradkinok.github.io/goit-js-hw-09/
+
+
+
+# Parcel template
+
+Ten projekt został stworzony przy pomocy Parcel. W celu zapoznania się i
+skonfigurowania dodatkowych opcji [zobacz dokumentację](https://parceljs.org/)
+
+## Przygotowanie nowego projektu
+
+1. Upewnij się, że na komputerze zainstalowana jest wersja LTS Node.js.
+   [Ściągnij i zainstaluj](https://nodejs.org/en/), jeśli jest taka potrzeba.
+2. Sklonuj to repozytorium.
+3. Zmień nazwę folderu z `parcel-project-template` na nazwę swojego projektu.
+4. Utwórz nowe, puste repozytorium na GitHub.
+5. Otwórz projekt w VSCode, uruchom terminal i zwiąż projekt z repozytorium
+   GitHub
+   [zgodnie z instrukcją](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
+6. Utwórz zależność projektu w terminalu przez polecenie `npm install` .
+7. Włącz tryb edycji, wykonując polecenie `npm start`.
+8. Przejdź w przeglądarce pod adres
+   [http://localhost:1234](http://localhost:1234). Ta strona będzie się
+   automatycznie odświeżać po dokonaniu zmian w plikach projektu.
+
+## Pliki i foldery
+
+- Wszystkie partiale plików stylów powinny znajdować się w folderze `src/sass` i
+  importować się w pliki stylów stron. Na przykład dla `index.html` plik stylów
+  nazywa się `index.scss`.
+- Obrazy dodawaj do pliku `src/images`. Moduł zbierający optymalizuje je, ale
+  tylko przy deploymencie wersji produkcyjnej projektu. Wszystko to zachodzi w
+  chmurze, aby nie obciążać twojego komputera, ponieważ na słabszym sprzęcie
+  może to zająć sporo czasu.
+
+## Deployment
+
+Aby skonfigurować deployment projektu należy wykonać kilka dodatkowych kroków
+konfigurowania twojego repozytorium. Wejdź w zakładkę `Settings` i w podsekcji
+`Actions` wybierz punkt `General`.
+
+![GitHub actions settings](./assets/actions-config-step-1.png)
+
+Przejdź do ostatniej sekcji, w której upewnij się, że wybrane opcje są takie
+same jak na następnym obrazku i kliknij `Save`. Bez tych ustawień w module
+zbierającym będzie zbyt mało pozwoleń dla automatyzacji procesu deploymentu.
+
+![GitHub actions settings](./assets/actions-config-step-2.png)
+
+Wersja produkcyjna projektu będzie automatycznie gromadzić się i deployować na
+GitHub Pages w gałęzi `gh-pages` za każdym razem, gdy aktualizuje się gałąź
+`main`. Na przykład po bezpośrednim pushu lub przyjętym pull requeście. W tym
+celu niezbędne jest, aby w pliku `package.json` wyedytować pole `homepage` i
+skrypt `build`, zamieniając `your_username` i `your_repo_name` na swoje nazwy i
+wysłać zmiany na GitHub.
+
+```json
+"homepage": "https://your_username.github.io/your_repo_name/",
+"scripts": {
+  "build": "parcel build src/*.html --public-url /your_repo_name/"
+},
+```
+
+Dalej należy wejść w ustawienia repozytorium GitHub (`Settings` > `Pages`) i
+wystawić dystrybucję wersji produkcyjnej z folderu `/root` gałęzi `gh-pages`,
+jeśli nie zrobiło się to automatycznie.
+
+![GitHub Pages settings](./assets/repo-settings.png)
+
+### Status deploymentu
+
+Status deploymentu ostatniego commitu wyświetla się na ikonie obok jego
+identyfikatora.
+
+- ** Żółty kolor** - wykonuje się zbudowanie i deployment projektu.
+- ** Zielony kolor** - deployment zakończył się sukcesem.
+- ** Czerwony kolor** - w czasie lintingu, budowania lub deplymentu pojawił się
+  błąd.
+
+Więcej informacji o statusie można zobaczyć klikając na ikonkę i w wyskakującym
+oknie przejść do odnośnika `Details`.
+
+![Deployment status](./assets/status.png)
+
+### Działająca strona
+
+Po jakimś czasie, zazwyczaj kilku minut, działającą stronę będzie można zobaczyć
+pod adresem wskazanym w wyedytowanej właściwości `homepage`. Na przykład tu
+znajduje się odnośnik do działającej strony dla tego repozytorium
+[https://goitacademy.github.io/parcel-project-template](https://goitacademy.github.io/parcel-project-template).
+
+Jeżeli otwiera się pusta strona, upewnij się, że w zakładce `Console` nie ma
+błędów związanych z nieprawidłowymi ścieżkami do plików projektu CSS i JS
+(**404**). Najprawdopodobniej wprowadzona została nieprawidłowa wartość
+właściwości `homepage` lub skryptu `build` w pliku `package.json`.
+
+## Jak to działa
+
+![How it works](./assets/how-it-works.png)
+
+1. Po każdym pushu w gałęzi `main` repozytorium GitHub, włącza się specjalny
+   skrypt (GitHub Action) z pliku `.github/workflows/deploy.yml`.
+2. Wszystkie pliki repozytorium kopiują się na serwer, gdzie projekt
+   inicjalizuje się i buduje przed deploymentem.
+3. Jeżeli wszystkie kroki zakończyły się sukcesem, zbudowana wersja produkcyjna
+   plików projektu wysyła się w gałąź `gh-pages`. W przeciwnym razie, w logu
+   wykonania skryptu wskazane zostanie, w czym jest problem.
+
+
+# Kryteria przyjęcia
+
+- Utworzono repozytorium `goit-js-hw-09`.
+- Przy oddaniu pracy domowej dołączono linki: do plików
+  źródłowych i strony roboczej na `GitHub Pages`.
+- Wiersz poleceń nie zawiera błędów i ostrzeżeń.
+- Projekt utworzono z pomocą
   [parcel-project-template](https://github.com/goitacademy/parcel-project-template).
-- Код отформатирован `Prettier`.
+- Sformatowano kod `Prettier`.
 
-## Стартовые файлы
+## Pliki startowe
 
-[Скачай стартовые файлы](https://downgit.github.io/#/home?url=https://github.com/goitacademy/javascript-homework/tree/main/v2/09/src)
-с готовой разметкой, стилями и подключенными файлами скриптов для каждого
-задания. Скопируй их себе в проект, полностью заменив папку `src` в
+W [folderze src](./src) znajdziesz pliki startowe z gotowym znacznikiem, stylami i
+połączonymi plikami skryptów dla każdego zadania. Skopiuj je do swojego projektu, 
+całkowicie zamieniając folder `src` w
 [parcel-project-template](https://github.com/goitacademy/parcel-project-template).
+Aby to zrobić, pobierz całe repozytorium jako archiwum lub użyj
+[serwisu DownGit](https://downgit.github.io/) aby pobrać oddzielny folder z
+repozytorium.
 
-## Задание 1 - переключатель цветов
+## Zadanie 1 - zmiana koloru
 
-Выполняй это задание в файлах `01-color-switcher.html` и `01-color-switcher.js`.
-Посмотри демо видео работы переключателя.
+Wykonuj to zadanie w plikach `01-color-switcher.html` i `01-color-switcher.js`.
+Obejrzyj wersję demonstracyjną wideo o działaniu zmiany koloru.
 
 https://user-images.githubusercontent.com/17479434/127716753-fabd276f-6a7d-411b-bfa2-01c818f4ea66.mp4
 
-<!-- Посмотри
-[демо видео](https://user-images.githubusercontent.com/17479434/127716753-fabd276f-6a7d-411b-bfa2-01c818f4ea66.mp4)
-работы переключателя. -->
-
-В HTML есть кнопки «Start» и «Stop».
+W HTML znajdują się przyciski «Start» i «Stop».
 
 ```html
 <button type="button" data-start>Start</button>
 <button type="button" data-stop>Stop</button>
 ```
+Napisz skrypt, który po kliknięciu przycisku «Start», raz na sekundę zmienia kolor
+tła `<body>` na wartość losową używając stylu inline. Po kliknięciu
+przycisku «Stop», kolor tła powinien przestać się zmieniać.
 
-Напиши скрипт, который после нажатия кнопки «Start», раз в секунду меняет цвет
-фона `<body>` на случайное значение используя инлайн стиль. При нажатии на
-кнопку «Stop», изменение цвета фона должно останавливаться.
-
-> ⚠️ Учти, на кнопку «Start» можно нажать бесконечное количество раз. Сделай
-> так, чтобы пока изменение темы запушено, кнопка «Start» была не активна
+> ⚠️ Zwróć uwagę na to, że przycisk «Start» można klikać w nieskończoność. Zrób
+> tak, żeby przycisk «Start» był nieaktywny, dopóki zmiana tematu jest uruchomiona
 > (disabled).
 
-Для генерации случайного цвета используй функцию `getRandomHexColor`.
+Aby wygenerować losowy kolor użyj funkcji `getRandomHexColor`.
 
 ```js
 function getRandomHexColor() {
@@ -52,24 +163,20 @@ function getRandomHexColor() {
 }
 ```
 
-## Задание 2 - таймер обратного отсчета
+## Zadanie 2 - odliczanie czasu
 
-Выполняй это задание в файлах `02-timer.html` и `02-timer.js`. Напиши скрипт
-таймера, который ведёт обратный отсчет до определенной даты. Такой таймер может
-использоваться в блогах и интернет-магазинах, страницах регистрации событий, во
-время технического обслуживания и т. д. Посмотри демо видео работы таймера.
+Wykonuj to zadanie w plikach `02-timer.html` i `02-timer.js`. Napisz skrypt
+licznika, który odlicza czas do określonego zdarzenia. Taki licznik można
+wykorzystywać na blogach czy w sklepach internetowych, stronach z różnymi wydarzeniami, podczas
+przerwy technicznej itd. Obejrzyj wersję demonstracyjną wideo o działaniu licznika.
 
 https://user-images.githubusercontent.com/17479434/127672390-2a51efe1-06fb-41dd-86dd-8542393d3043.mp4
 
-<!-- Посмотри
-[демо видео](https://user-images.githubusercontent.com/17479434/127672390-2a51efe1-06fb-41dd-86dd-8542393d3043.mp4)
-работы таймера. -->
+### Elementy interfesju
 
-### Элементы интефрейса
-
-В HTML есть готовая разметка таймера, поля выбора конечной даты и кнопки, при
-клике по которой таймер должен запускаться. Добавь минимальное оформление
-элементов интерфейса.
+W HTML znajduje się znacznik licznika, pola wyboru końcowej daty i przycisku, po
+którego kliknięciu licznik powinien się uruchomić. Popraw wizualnie
+elementy interfejsu.
 
 ```html
 <input type="text" id="datetime-picker" />
@@ -95,32 +202,32 @@ https://user-images.githubusercontent.com/17479434/127672390-2a51efe1-06fb-41dd-
 </div>
 ```
 
-### Библиотека `flatpickr`
+### Biblioteka `flatpickr`
 
-Используй библиотеку [flatpickr](https://flatpickr.js.org/) для того чтобы
-позволить пользователю кроссбраузерно выбрать конечную дату и время в одном
-элементе интерфейса. Для того чтобы подключить CSS код библиотеки в проект,
-необходимо добавить еще один импорт, кроме того который описан в документации.
+Używaj biblioteki [flatpickr](https://flatpickr.js.org/) po to, aby
+pozwolić użytkownikowi wybrać ostateczną datę i godzinę w różnych przeglądarkach w jednym
+elemencie interfejsu. Aby połączyć kod CSS biblioteki z projektem,
+należy dodać jeszcze jeden import, oprócz tego opisanego w dokumentacji.
 
 ```js
-// Описан в документации
+// Opisany w dokumentacji
 import flatpickr from 'flatpickr';
-// Дополнительный импорт стилей
+// Dodatkowy import stylów
 import 'flatpickr/dist/flatpickr.min.css';
 ```
 
-Библиотека ожидает что её инициализируют на элементе `input[type="text"]`,
-поэтому мы добавили в HTML документ поле `input#datetime-picker`.
+Biblioteka czeka na jej inicjalizację w elemencie `input[type="text"]`,
+dlatego dodaliśmy do HTML `input#datetime-picker`.
 
 ```html
 <input type="text" id="datetime-picker" />
 ```
 
-Вторым аргументом функции `flatpickr(selector, options)` можно передать
-необязательный объект параметров. Мы подготовили для тебя объект который нужен
-для выполнения задания. Разберись за что отвечает каждое свойство в
-[документации «Options»](https://flatpickr.js.org/options/) и используй его в
-своем коде.
+Drugim argumentem funkcji `flatpickr(selector, options)` można przekazać
+nieobowiązkowy obiekt parametrów. Przygotowaliśmy dla Ciebie obiekt, który jest niezbędny
+do wykonania zadania. Zorientuj się, za co odpowiada każda właściwość w
+[dokumentacji «Options»](https://flatpickr.js.org/options/) i użyj jej w 
+swoim kodzie.
 
 ```js
 const options = {
@@ -134,37 +241,37 @@ const options = {
 };
 ```
 
-### Выбор даты
+### Wybór daty
 
-Метод `onClose()` из обьекта параметров вызывается каждый раз при закрытии
-элемента интерфейса который создает `flatpickr`. Именно в нём стоит обрабатывать
-дату выбранную пользователем. Параметр `selectedDates` это массив выбранных дат,
-поэтому мы берем первый элемент.
+Metoda `onClose()` z obiektu parametrów pojawia się za każdym razem przy zamknięciu
+elementu interfejsu, który tworzy `flatpickr`. To właśnie w nim należy opracować
+datę wybraną przez użytkownika. Parametr `selectedDates` to tablica wybranych dat,
+dlatego bierzemy pierwszy element.
 
-- Если пользователь выбрал дату в прошлом, покажи `window.alert()` с текстом
+- Jeśli użytkownik wybrał datę z przeszłości, pokaż `window.alert()` o treści
   `"Please choose a date in the future"`.
-- Если пользователь выбрал валидную дату (в будущем), кнопка «Start» становится
-  активной.
-- Кнопка «Start» должа быть не активна до тех пор, пока пользователь не выбрал
-  дату в будущем.
-- При нажатии на кнопку «Start» начинается отсчет времени до выбранной даты с
-  момента нажатия.
+- Jeśli użytkownik wybrał odpowiednią datę (z przyszłości), przycisk «Start» staje się
+  aktywny.
+- Przycisk «Start» powinien być nieaktywny dotąd, dopóki użytkownik nie wybierze
+  daty z przyszłości.
+- Po kliknięciu przycisku «Start» zaczyna się odliczanie czasu do wybranej daty od
+  momentu kliknięcia.
 
-### Отсчет времени
+### Odliczanie czasu
 
-При нажатии на кнопку «Start» скрипт должен вычислять раз в секунду сколько
-времени осталось до указанной даты и обновлять интерфейс таймера, показывая
-четыре цифры: дни, часы, минуты и секунды в формате `xx:xx:xx:xx`.
+Po kliknięciu na przycisk «Start» skrypt powinien wyliczać raz na sekundę ile
+czasu pozostało do wskazanej daty i aktualizować interfejs licznika, pokazując
+cztery liczby: dni, godziny, minuty i sekundy w formacie `xx:xx:xx:xx`.
 
-- Количество дней может состоять из более чем двух цифр.
-- Таймер должен останавливаться когда дошел до конечной даты, то есть
+- Liczba dni może się składać z więcej niż dwóch cyfr.
+- Licznik powinien się zatrzymać, po dojściu do daty końcowej, czyli
   `00:00:00:00`.
 
-> 💡 Не будем усложнять. Если таймер запущен, для того чтобы выбрать новую дату
-> и перезапустить его - необходимо перезагрузить страницу.
+> 💡 Nie będziemy komplikować. Jeśli licznik jest uruchomiony, należy odświeżyć stronę,
+> aby go zrestartować i wybrać nową datę.
 
-Для подсчета значений используй готовую функцию `convertMs`, где `ms` - разница
-между конечной и текущей датой в миллисекундах.
+Aby obliczyć wartości użyj gotowej funkcji `convertMs`, gdzie `ms` - różnica
+między końcową i aktualną datą w milisekundach.
 
 ```js
 function convertMs(ms) {
@@ -191,37 +298,33 @@ console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
 console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 ```
 
-### Форматирование времени
+### Formatowanie czasu
 
-Функция `convertMs()` возвращает объект с рассчитанным оставшимся временем до
-конечной даты. Обрати внимание, что она не форматирует результат. То есть, если
-осталось 4 минуты или любой другой составляющей времени, то функция вернет `4`,
-а не `04`. В интерфейсе таймера необходимо добавлять `0` если в числе меньше
-двух символов. Напиши функцию `addLeadingZero(value)`, которая использует метод
-метод `padStart()` и перед отрисовкой интефрейса форматируй значение.
+Funkcja `convertMs()` przywraca obiekt z obliczonym pozostałym czasem do
+daty końcowej. Zwróć uwagę, że nie formatuje wyniku. To znaczy, że jeśli
+pozostały 4 minuty czy sekundy, to funkcja przywróci `4`,
+a nie `04`. W interfejsie licznika konieczne jest dodanie `0` jeśli liczba zawiera mniej niż
+dwa symbole. Napisz funkcję `addLeadingZero(value)`, która używa
+metody `padStart()` i przed renderowaniem interfejsu sformatuj wartość.
 
-### Библиотека уведомлений
+### Biblioteka powiadomień
 
-> ⚠️ Следующий функционал не обязателен при сдаче задания, но будет хорошей
-> дополнительной практикой.
+> ⚠️ Następna funkcja nie jest obowiązkowa przy oddawaniu zadania, ale będzie dobrą
+> dodatkową praktyką.
 
-Для отображения уведомлений пользователю вместо `window.alert()` используй
-библиотеку [notiflix](https://github.com/notiflix/Notiflix#readme).
+Aby wyświetlić użytkownikowi powiadomienie, zamiast `window.alert()` użyj
+biblioteki [notiflix](https://github.com/notiflix/Notiflix#readme).
 
-## Задание 3 - генератор промисов
+## Zadanie 3 - generator obietnic
 
-Выполняй это задание в файлах `03-promises.html` и `03-promises.js`. Посмотри
-демо видео работы генератора промисов.
+Wykonuj to zadanie w plikach `03-promises.html` i `03-promises.js`. Obejrzyj
+wersję demonstracyjną wideo o działaniu generatora obietnic.
 
 https://user-images.githubusercontent.com/17479434/127932183-42232f26-4db2-4614-86bc-6bec54b1d6a4.mp4
 
-<!-- Посмотри
-[демо видео](https://user-images.githubusercontent.com/17479434/127932183-42232f26-4db2-4614-86bc-6bec54b1d6a4.mp4)
-работы генератора промисов. -->
-
-В HTML есть разметка формы, в поля которой пользователь будет вводить первую
-задержку в миллисекундах, шаг увеличения задержки для каждого промиса после
-первого и количество промисов которое необходимо создать.
+W HTML znajduje się znacznik formularza, w którego pola użytkownik będzie wprowadzał pierwsze
+opóźnienie w milisekundach, stopień zwiększenia opóźnienia dla każdej kolejnej obietnicy
+i liczbę obietnic, które należy utworzyć.
 
 ```html
 <form class="form">
@@ -241,10 +344,10 @@ https://user-images.githubusercontent.com/17479434/127932183-42232f26-4db2-4614-
 </form>
 ```
 
-Напиши скрипт, который при сабмите формы вызывает функцию
-`createPromise(position, delay)` столько раз, сколько ввели в поле `amount`. При
-каждом вызове передай ей номер создаваемого промиса (`position`) и задержку
-учитывая введенную пользователем первую задержку (`delay`) и шаг (`step`).
+Napisz skrypt, który po wysłaniu formularza wywoła funkcję
+`createPromise(position, delay)` tyle razy, ile wprowadzono w pole `amount`. Po
+każdym wywołaniu przekaż jej numer utworzonej obietnicy (`position`) i opóźnienie,
+uwzględniając wprowadzone przez użytkownika pierwsze opóźnienie (`delay`) i stopień (`step`).
 
 ```js
 function createPromise(position, delay) {
@@ -257,11 +360,11 @@ function createPromise(position, delay) {
 }
 ```
 
-Дополни код функции `createPromise` так, чтобы она возвращала **один промис**,
-который выполянется или отклоняется через `delay` времени. Значением промиса
-должен быть объект, в котором будут свойства `position` и `delay` со значениями
-одноименных параметров. Используй начальный код функции для выбора того, что
-нужно сделать с промисом - выполнить или отклонить.
+Uzupełnij kod funkcji `createPromise` tak, aby przywracała **jedną obietnicę**,
+którą realizuje się lub odkłada poprzez `delay` czasu. Wartością obietnicy
+powinien być obiekt, w którym będą właściwości `position` i `delay` z wartościami
+parametrów o tej samej nazwie. Użyj kodu początkowego funkcji, aby wybrać to, co
+należy zrobić z obietnicą - zrealizować lub odłożyć.
 
 ```js
 createPromise(2, 1500)
@@ -273,10 +376,10 @@ createPromise(2, 1500)
   });
 ```
 
-### Библиотека уведомлений
+### Biblioteka powiadomień
 
-> ⚠️ Следующий функционал не обязателен при сдаче задания, но будет хорошей
-> дополнительной практикой.
+> ⚠️ Następna funkcja nie jest obowiązkowa przy oddawaniu zadania, ale będzie dobrą
+> dodatkową praktyką.
 
-Для отображения уведомлений пользователю вместо `console.log()` используй
-библиотеку [notiflix](https://github.com/notiflix/Notiflix#readme).
+Aby wyświetlić użytkownikowi powiadomienie, zamiast `console.log()` użyj
+biblioteki [notiflix](https://github.com/notiflix/Notiflix#readme).

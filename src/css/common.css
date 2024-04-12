@@ -16,3 +16,20 @@ img {
   display: block;
   max-width: 100%;
 }
+
+/* 02-timer.html */
+.timer {
+  display: flex;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.value {
+  font-size: 40pt;
+}
