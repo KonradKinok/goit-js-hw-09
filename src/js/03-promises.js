@@ -28,6 +28,12 @@ form.addEventListener('submit', event => {
   }
 });
 
+/**CreatePromise
+ *
+ * @param {Number} position
+ * @param {Number} delay
+ * @returns Promise
+ */
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
