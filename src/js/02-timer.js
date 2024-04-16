@@ -25,7 +25,7 @@ const options = {
   },
 };
 //Datetime-picker
-flatpickr('#datetime-picker', { ...options });
+flatpickr('#datetime-picker', options);
 
 //Event Listener
 startButton.addEventListener('click', () => {
